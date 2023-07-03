@@ -11,19 +11,16 @@ import dht                 # import the builtin library
 tempSensor = dht.DHT11(Pin(27))     # DHT11 Constructor 
 # BEGIN SETTINGS
 # These need to be change to suit your environment
-RANDOMS_INTERVAL = 10000    # milliseconds
+RANDOMS_INTERVAL = 100000    # milliseconds
 last_random_sent_ticks = 0  # milliseconds
 led = Pin("LED", Pin.OUT)   # led pin initialization for Raspberry Pi Pico W
 
-# # Wireless network
-# WIFI_SSID = "TN_24GHz_D20465"
-# WIFI_PASS = "B42C3E878A" # No this is not our regular password. :)
 
 # Adafruit IO (AIO) configuration
 AIO_SERVER = "io.adafruit.com"
 AIO_PORT = 1883
 AIO_USER = "rq222ah"
-AIO_KEY = "aio_EsuN55DL3Z0xHUybR2IOResgSK7C"
+AIO_KEY = "aio_key"
 AIO_CLIENT_ID = ubinascii.hexlify(machine.unique_id())  # Can be anything
 AIO_LIGHTS_FEED = "rq222ah/feeds/led"
 AIO_RANDOMS_FEED = "rq222ah/feeds/picow"

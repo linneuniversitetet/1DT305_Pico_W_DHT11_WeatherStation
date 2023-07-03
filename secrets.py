@@ -1,4 +1,4 @@
 secrets = {
-   'SSID' : 'your wifi',
-   'SSID_PASSWORD' : 'wifi password',
+   'WIFI_SSID' : 'wifi network',
+   'WIFI_PASS' : 'wifi password',
    }

@@ -2,17 +2,12 @@
 import network, utime
 from secrets import secrets
 
-# Replace the following with your WIFI Credentials
-# SSID = "iotlab"
-# SSID_PASSWORD = "modermodemet"
-
-
 def do_connect():
     sta_if = network.WLAN(network.STA_IF)
     if not sta_if.isconnected():
         print('connecting to network...')
         sta_if.active(True)
-        sta_if.connect(secrets["SSID"], secrets["SSID_PASSWORD"])
+        sta_if.connect(secrets["WIFI_SSID"], secrets["WIFI_PASS"])
         while not sta_if.isconnected():
             print("Attempting to connect....")
             utime.sleep(1)
