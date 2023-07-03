@@ -7,29 +7,29 @@ import random                 # Random number generator
 from machine import Pin       # Define pin
 from secrets import secrets
 import dht                 # import the builtin library
-from adafruitIO import AdafruitIO    # Import the new AdafruitIO class
 
-
-tempSensor = dht.DHT11(Pin(27))     
-
+tempSensor = dht.DHT11(Pin(27))     # DHT11 Constructor 
 # BEGIN SETTINGS
-RANDOMS_INTERVAL = 10000    # milliseconds
+# These need to be change to suit your environment
+RANDOMS_INTERVAL = 100000    # milliseconds
 last_random_sent_ticks = 0  # milliseconds
 led = Pin("LED", Pin.OUT)   # led pin initialization for Raspberry Pi Pico W
 
+
 # Adafruit IO (AIO) configuration
-aio = AdafruitIO()    # Instantiate AdafruitIO object
-AIO_SERVER = aio.get_server()
-AIO_PORT = aio.get_port()
-AIO_USER = aio.get_user()
-AIO_KEY = aio.get_key()
-AIO_CLIENT_ID = ubinascii.hexlify(machine.unique_id())  
-AIO_LIGHTS_FEED = aio.get_lights_feed()
-AIO_RANDOMS_FEED = aio.get_randoms_feed()
-AIO_TEMPERATURE_FEED = aio.get_temperature_feed()
-AIO_HUMIDITY_FEED = aio.get_humidity_feed()
+AIO_SERVER = "io.adafruit.com"
+AIO_PORT = 1883
+AIO_USER = "rq222ah"
+AIO_KEY = "aio_key"
+AIO_CLIENT_ID = ubinascii.hexlify(machine.unique_id())  # Can be anything
+AIO_LIGHTS_FEED = "rq222ah/feeds/led"
+AIO_RANDOMS_FEED = "rq222ah/feeds/picow"
+AIO_TEMPERATURE_FEED = "rq222ah/feeds/temperature"
+AIO_HUMIDITY_FEED = "rq222ah/feeds/humidity"
 
 # END SETTINGS
+
+
 
 # FUNCTIONS
 
@@ -55,6 +55,8 @@ def do_connect():
     ip = wlan.ifconfig()[0]
     print('\nConnected on {}'.format(ip))
     return ip 
+
+
 
 # Callback Function to respond to messages from Adafruit IO
 def sub_cb(topic, msg):          # sub_cb means "callback subroutine"
@@ -110,6 +112,7 @@ client.set_callback(sub_cb)
 client.connect()
 client.subscribe(AIO_LIGHTS_FEED)
 print("Connected to %s, subscribed to %s topic" % (AIO_SERVER, AIO_LIGHTS_FEED))
+
 
 
 try:                      # Code between try: and finally: may cause an error
