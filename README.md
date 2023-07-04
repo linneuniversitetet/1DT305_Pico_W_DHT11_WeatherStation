@@ -1,3 +1,47 @@
+# Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [Pico\_DHT11\_WeatherStation](#pico_dht11_weatherstation)
+    - [Student Information](#student-information)
+  - [Project Overview](#project-overview)
+    - [Time Required](#time-required)
+  - [Project Objective](#project-objective)
+    - [Why I Chose This Project](#why-i-chose-this-project)
+    - [What Purpose It Serves](#what-purpose-it-serves)
+    - [Insights I Expect To Gain](#insights-i-expect-to-gain)
+  - [Materials](#materials)
+  - [Computer Setup on Windows OS](#computer-setup-on-windows-os)
+    - [Prerequisites](#prerequisites)
+    - [Steps](#steps)
+  - [Updating Firmware on Raspberry Pi Pico W and Running a Test Code](#updating-firmware-on-raspberry-pi-pico-w-and-running-a-test-code)
+    - [Prerequisites](#prerequisites-1)
+    - [Firmware Update](#firmware-update)
+    - [Testing the Board](#testing-the-board)
+  - [Creating a New Project with VS Code and Pymakr](#creating-a-new-project-with-vs-code-and-pymakr)
+    - [Prerequisites](#prerequisites-2)
+    - [Steps](#steps-1)
+  - [Troubleshooting](#troubleshooting)
+  - [Project Structure](#project-structure)
+    - [Projects File Hierarchy](#projects-file-hierarchy)
+  - [Putting everything together](#putting-everything-together)
+    - [Wiring](#wiring)
+    - [Resistors, Current, and Voltage](#resistors-current-and-voltage)
+  - [Platform](#platform)
+    - [Comparison with other platforms](#comparison-with-other-platforms)
+    - [Cloud vs Local](#cloud-vs-local)
+    - [Paid vs Free](#paid-vs-free)
+    - [Functionality](#functionality)
+    - [Scaling](#scaling)
+  - [The code](#the-code)
+    - [Transmitting the Data / Connectivity](#transmitting-the-data--connectivity)
+  - [Presenting the data](#presenting-the-data)
+    - [Visual Examples of the data: showing the output and response](#visual-examples-of-the-data-showing-the-output-and-response)
+  - [Finalizing the Design](#finalizing-the-design)
+    - [Reflections and Alternate Approaches](#reflections-and-alternate-approaches)
+  - [References](#references)
+
+***
+
 # Pico_DHT11_WeatherStation
 
 Building a temperature and humidity sensor
