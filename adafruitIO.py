@@ -4,7 +4,7 @@ class AdafruitIO:
         self._server = "io.adafruit.com"
         self._port = 1883
         self._user = "rq222ah"
-        self._key = "aio_key"
+        self._key = "aio_EeQn13ObFJLcEKoSJd5KPw0y9jVV"
         self._lights_feed = "rq222ah/feeds/led"
         self._randoms_feed = "rq222ah/feeds/picow"
         self._temperature_feed = "rq222ah/feeds/temperature"
