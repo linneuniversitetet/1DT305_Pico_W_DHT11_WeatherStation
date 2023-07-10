@@ -32,7 +32,7 @@
     - [Paid vs Free](#paid-vs-free)
     - [Functionality](#functionality)
     - [Scaling](#scaling)
-  - [The code](#the-code)
+  - [The Code](#the-code)
     - [Transmitting the Data / Connectivity](#transmitting-the-data--connectivity)
   - [Presenting the data](#presenting-the-data)
     - [Visual Examples of the data: showing the output and response](#visual-examples-of-the-data-showing-the-output-and-response)
@@ -222,7 +222,16 @@ Pico_DHT11_WeatherStation
 | |-mqtt.py
 |-boot.py
 |-main.py
+|-secret.py
+|-adafruitIO.py
+|images
+|README.md
+|OtherFiles
+|.gitignore
+|LICENSE
+|pymakr.conf
 ```
+
 ***
 
 ## Putting everything together
@@ -276,15 +285,23 @@ The script collects data from a DHT11 temperature and humidity sensor, generates
 If you're looking to scale up your idea, you may need to consider a more robust MQTT broker service or host your own, depending on the size of your project. Also, you might need to consider the limitations of the Raspberry Pi Pico, especially for large-scale, complex projects
 ***
 
-## The code
+## The Code
 
-The code for this project is provided in the linked repository. It's written in MicroPython.
+The project's file structure is as follows:
 
-Key sections of the code:
+- `adafruitIO.py`: This script likely manages the interaction with the Adafruit IO platform, a cloud service designed for storing, sharing, and visualizing data from devices and storing Adafruit IO keys. It is responsible for establishing a connection, publishing data, and subscribing to the Adafruit IO MQTT broker to enable IoT functionalities.
 
-- **Configurations**: Setup details, including Wi-Fi and Adafruit IO server info.
-- **Functions**: These handle Wi-Fi connection, random number generation, and MQTT message handling.
-- **Main** Loop: Checks for MQTT messages and sends random numbers to Adafruit IO.
+- `boot.py`: A special file in MicroPython that is executed when the device boots up. This script typically handles Wi-Fi connections and other boot-time configurations. It runs before `main.py`.
+
+- `main.py`: This is the script that's run following `boot.py` during device startup. It likely contains the primary logic of the program, checking for MQTT messages and sending random numbers to the Adafruit IO platform.
+
+- `secrets.py`: This file stores sensitive data like Wi-Fi credentials. Keeping these details separate from the main code files enhances security.
+
+- `LICENSE`, `README.md`: These are documentation files. `LICENSE` outlines the permissions others have regarding the code, while `README.md` offers an overview of the project, setup instructions, and usage guide.
+
+- `pymakr.conf`: This file is specific to Pymakr, a plugin compatible with Atom and Visual Studio Code IDEs that facilitates communication with Pycom devices. This file probably contains configuration details for Pymakr.
+
+- `imges`, `lib`, `OtherFiles`: These directories store additional resources used by the program. `imges` contain image assets, `lib` store additional libraries or dependencies required by the main program, and `OtherFiles` hold various other resources or scripts related to the project.
 
 ***
 
